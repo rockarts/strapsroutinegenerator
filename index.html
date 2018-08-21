@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Steven Rockarts">
+
+    <title>Straps Routine Generator</title>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+</head>
+<body>
+
+    <div id="wrapper" class="container">
+            <div class="row">
+                    <img src="images/machine1_2.gif" width="300" height="300"/>
+                </div>
+            <div class="row">
+            <form>
+                <select id="skills" class="selectpicker" width: 'auto' multiple>
+    
+                    <optgroup label="Beginner" data-style="btn-success">
+                        <option>Figure 4 Climb</option>
+                        <option>Half Arabesque</option>
+                        <option>Half Moon</option>
+                        <option>L-Sit</option>
+                        <option>Meathook</option>
+                        <option>Nutcracker</option>
+                        <option>Piston</option>
+                        <option>Pull Up</option>
+                        <option>Skin</option>
+                        <option>Support Cross</option>
+    
+                    </optgroup>
+                    <optgroup label="Intermediate">
+                            <option>1.5 Knee Roll + Drop</option>
+                            <option>1-Arm 1-Leg Roll</option>
+                            <option>Back Balance</option>
+                            <option>Backlever</option>
+                            <option>Frontlever</option>
+                            <option>Handstand</option>
+                            <option>Muscle Up</option>
+                            <option>Reverse Meathook</option>
+                            <option>Roll Up</option>
+                    </optgroup>
+                    <optgroup label="Advanced">
+                    </optgroup>
+                </select>
+            </form>
+            <button id="generate" class="btn btn-primary">Generate Routine!</button>
+            <button id="clear" class="btn btn-danger">Clear</button>
+            </div>
+            
+        
+            
+    </div>
+    <div id="routine" class="row" margin="10px">
+
+    </div>
+    <script type="text/javascript">
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+        $( "#generate" ).click(function() {
+            var dict = {};
+
+            dict['Figure 4 Climb'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/yQDL7DKOj3c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Half Arabesque'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/tAcPzcf5a6w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Half Moon'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/Q17PvonwdzM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['L-Sit'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/qEgbp6k0erM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Meathook'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/stfd2a2EkJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Nutcracker'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/TsC_d5MUk70" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Piston'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/RJcgKHrhZjs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Pull Up'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/rg5Jynw4MT0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Skin'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/pRvRBg2OI5c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Support Cross'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/lpNASA7WFxU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['1.5 Knee Roll + Drop'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/-vDS6iviWGA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['1-Arm 1-Leg Roll'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/RyLQ3jVY2pE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Back Balance'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/FV3uNptKK0U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Backlever'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/Qn-IR413Raw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Frontlever']= '<iframe width="560" height="315" src="https://www.youtube.com/embed/PlEQQj66YcU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Handstand'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/dmteRd0yhT8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Muscle Up'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/uWrr9bUi7rw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Reverse Meathook'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/rWNSdODwPpM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            dict['Roll Up'] = '<iframe width="560" height="315" src="https://www.youtube.com/embed/8juEAxydFWs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+
+            var selectedSkills = $('#skills').val();
+            console.log(selectedSkills);
+            selectedSkills = shuffle(selectedSkills);
+            console.log(selectedSkills);
+            
+            var routine = $('#routine')
+            routine.append("<ul>");
+            selectedSkills.forEach(function(skill){
+                //routine.append("<li>" + "<a href='" + dict[skill] + "'>" + skill + "</a></li>")
+                routine.append("<li>" + dict[skill] + "</li>")
+            })
+            routine.append("</ul>");
+        });
+        
+    </script>
+</body>
+
+</html>
